@@ -1,0 +1,10 @@
+{
+  "status": 0,
+  "message": [{
+      "src": "./static/images/Mi-note5-01.png"
+    },
+    {
+      "src": "./static/images/Mi-note5-02.png"
+    }
+  ]
+}

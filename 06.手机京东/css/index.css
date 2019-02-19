@@ -1,0 +1,382 @@
+body {
+    background: #f5f5f5;
+}
+
+/*定义版心样式*/
+.container_w {
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 640px;
+    width: 100%;
+}
+
+/*顶部搜索栏 start*/
+.search {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.search_box {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+    min-width: 320px;
+    max-width: 640px;
+    left: 0;
+    top: 0;
+    background: rgba(201, 21, 35, 0);
+}
+
+.search_box .icon_logo {
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 60px;
+    height: 35px;
+    background-position: 0 -103px;
+}
+
+.search_box form {
+    position: relative;
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 50px;
+    left: 0;
+    top: 0;
+}
+
+.search_box .icon_search {
+    position: absolute;
+    left: 80px;
+    top: 9px;
+    width: 40px;
+    height: 30px;
+    background-position: -60px -109px;
+    /*border: 1px solid pink;*/
+}
+
+.search_box form input {
+    margin-top: 5px;
+    padding-left: 40px;
+    width: 100%;
+    height: 30px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.search_box .login {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+/*顶部搜索栏 end*/
+
+/*轮播图 start*/
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner ul.imgs {
+    width: 1000%;
+    /*设置为位移后元素层级会增高*/
+    transform: translateX(-10%);
+    -webkit-transform: translateX(-10%);
+}
+
+.banner .imgs li {
+    float: left;
+    width: 10%;
+}
+
+.banner .imgs li a {
+    display: block;
+    width: 100%;
+}
+
+.banner .imgs li a img {
+    display: block;
+    width: 100%;
+}
+
+.banner .dot {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -67px;
+}
+
+.banner .dot li {
+    float: left;
+    margin-left: 10px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.banner .dot li:first-child {
+    margin-left: 0;
+}
+
+.banner .dot li.now {
+    background: #fff;
+}
+
+/*轮播图 end*/
+
+/*导航栏 start*/
+.nav {
+    padding: 10px 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav ul {
+    width: 100%;
+}
+
+.nav li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.nav li a {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.nav ul li a img {
+    display: block;
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+}
+
+.nav a p {
+    padding: 5px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+/*导航栏 end*/
+
+/*秒杀模块 start*/
+.second_kill {
+    position: relative;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    -webkit-box-shadow: 0 0 1px 1px #cccccc;
+    -moz-box-shadow: 0 0 1px 1px #cccccc;
+    box-shadow: 0 0 1px 1px #cccccc;
+    background: #fff;
+}
+
+.second_kill .hd {
+    position: relative;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 40px;
+    left: 0;
+    top: 0;
+}
+
+.second_kill .hd::before {
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 30px;
+    top: 4px;
+    left: 5px;
+    background: url(../images/seckill-icon.png) no-repeat center/20px;
+}
+
+.second_kill .hd .description {
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    font-size: 16px;
+    color: #d8505c;
+}
+
+.second_kill .hd .time {
+    position: absolute;
+    left: 120px;
+    top: 12px;
+}
+
+.second_kill .hd .time span {
+    float: left;
+    margin: 0 2px;
+    width: 14px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background: #000;
+    color: #fff;
+}
+
+.second_kill .hd .time span:nth-child(3n) {
+    width: 2px;
+    color: #000;
+    background-color: #fff;
+}
+
+.second_kill .hd .more {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+}
+
+.second_kill .bd {
+    width: 100%;
+}
+
+.second_kill .bd div {
+    float: left;
+    width: 33.3333333%;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+.second_kill .bd div:last-child {
+    border-right: none;
+}
+
+.second_kill .bd div a {
+    display: block;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
+.second_kill .bd img {
+    width: 50%;
+    height: auto;
+}
+
+.second_kill .bd div p {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.second_kill .bd div .now {
+    color: #d8505c;
+}
+
+.second_kill .bd div .old {
+    text-decoration: line-through;
+}
+
+/*秒杀模块 end*/
+
+/*京东超市 start*/
+/*京东自营 start*/
+/*京东热门 start*/
+.jd_smart,
+.jd_self,
+.jd_hot {
+    margin-top: 10px;
+    width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 0 1px 1px #cccccc;
+    -moz-box-shadow: 0 0 1px 1px #cccccc;
+    box-shadow: 0 0 1px 1px #cccccc;
+}
+
+.jd_smart .hd,
+.jd_self .hd,
+.jd_hot .hd {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid #ccc;
+}
+
+.jd_smart .hd::before,
+.jd_self .hd::before,
+.jd_hot .hd::before {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    content: '';
+    height: 16px;
+    border-right: 4px solid #d8505c;
+}
+
+.jd_smart .hd .title,
+.jd_self .hd .title,
+.jd_hot .hd .title {
+    position: absolute;
+    left: 25px;
+    top: 8px;
+}
+
+.jd_smart .bd,
+.jd_self .bd,
+.jd_hot .bd {
+    width: 100%;
+    overflow: hidden;
+}
+
+.jd_smart .bd .left,
+.jd_self .bd .left,
+.jd_hot .bd .left {
+    float: left;
+    width: 50%;
+}
+
+.jd_smart .bd .right,
+.jd_self .bd .right,
+.jd_hot .bd .right {
+    float: right;
+    width: 50%;
+}
+
+.jd_smart .bd .left,
+.jd_hot .bd .left {
+    border-right: 1px solid #ccc;
+}
+
+.jd_self .bd .right {
+    border-left: 1px solid #ccc;
+}
+
+.jd_smart .bd img,
+.jd_self .bd img,
+.jd_hot .bd img {
+    width: 100%;
+}
+
+.jd_smart .bd .right .top,
+.jd_self .bd .left .top,
+.jd_hot .bd .right .top {
+    border-bottom: 1px solid #ccc;
+}
+
+/*京东超市 end*/
+/*京东自营 end*/
+/*京东热门 end*/

@@ -1,0 +1,287 @@
+/* header部分 start */
+body {
+	background-color: #f3f5f7;
+}
+
+header {
+	position: relative;
+	width: 1366px;
+	height: 100px;
+	background-color: #f3f5f7;
+}
+
+.header_inner {
+	width: 1190px;
+	height: 100px;
+}
+
+.header_inner .logo {
+	position: absolute;
+	width: 237px;
+	height: 100px;
+	left: 50px;
+	top: 0;
+}
+
+.header_inner .logo h1 {
+	width: 100%;
+	height: 100%;
+}
+
+.header_inner .logo a {
+	display: block;
+	width: 237px;
+	height: 100px;
+	/* text-indent: -999px; */
+	font-size: 0;
+	overflow: hidden;
+	background: url(../images/logo.png) no-repeat center;
+}
+
+.header_inner .nav {
+	position: absolute;
+	width: 249px;
+	height: 100px;
+	left: 300px;
+	top: 0;
+	line-height: 100px;
+	/* background-color: pink; */
+}
+
+.header_inner .nav a {
+	margin-left: 15px;
+	padding: 5px;
+	text-align: center;
+	font-size: 18px;
+	color: #050505;
+}
+
+.header_inner .nav .current {
+	border-bottom: 2px solid #00a4ff;
+	color: #00a4ff;
+}
+
+.header_inner .nav a:hover {
+	border-bottom: 2px solid #00a4ff;
+}
+
+.header_inner .search {
+	position: absolute;
+	top: 0;
+	right: 395px;
+	width: 415px;
+	height: 100px;
+	line-height: 100px;
+}
+
+.header_inner input {
+	padding-left: 15px;
+	width: 360px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #00a4ff;
+}
+
+.header_inner button {
+	position: absolute;
+	top: 32px;
+	right: 5px;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-family: "icomoon";
+	background-color: #00a4ff;
+}
+
+.header_inner i::before {
+	content: "\e906";
+	font-family: "icomoon";
+	font-size: 20px;
+	font-weight: 700;
+	color: #fff;
+}
+
+.header_inner .personal {
+	width: 225px;
+	height: 100px;
+	line-height: 100px;
+	/* background-color: lightblue; */
+	position: absolute;
+	top: 0px;
+	right: 154px;
+}
+
+.header_inner .personal dt,
+.header_inner .personal dd {
+	float: left;
+	margin-left: 10px;
+}
+
+.header_inner .personal dt {
+	font-size: 12px;
+	color: #666666;
+}
+
+.header_inner .personal span {
+	display: inline-block;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	background: url(../images/remind.png) no-repeat center center;
+	/* background-color: pink; */
+}
+
+.header_inner .personal span::after {
+	position: absolute;
+	top: 2px;
+	right: 3px;
+	width: 6px;
+	height: 6px;
+	content: "";
+	border-radius: 50%;
+	background: #f10215;
+}
+
+.header_inner .personal img:hover {
+	transform: rotate(360deg);
+	transition: all 1s;
+}
+
+.header_inner .personal a {
+	margin-left: 5px;
+	font-size: 14px;
+	color: #666;
+}
+
+.header_inner .personal a:hover {
+	color: #00a4ff;
+}
+
+.header_inner .login {
+	position: absolute;
+	top: 0;
+	right: 60px;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	/* background-color: pink; */
+}
+
+.header_inner .login a {
+	margin-left: 10px;
+	font-size: 14px;
+	color: #050505;
+}
+
+.header_inner .login a:hover {
+	color: #00a4ff;
+}
+
+/* 小竖线 */
+.header_inner .login::after {
+	display: inline-block;
+	position: absolute;
+	left: 53px;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 14px;
+	content: "";
+	border: 1px solid #a0a0a0;
+}
+
+/* header部分 end */
+/* footer部分 start */
+footer {
+	width: 1366px;
+	height: 275px;
+	background: #fff;
+}
+
+.footer_inner {
+	padding-top: 33px;
+	height: 100%;
+}
+
+footer .copyright {
+	float: left;
+	padding-left: 20px;
+	width: 460px;
+	height: 218px;
+	/* background-color: pink; */
+}
+
+footer .copyright h4 {
+	width: 200px;
+	height: 50px;
+	background: url(../images/logo1.png) no-repeat center;
+}
+
+footer .copyright .logo {
+	display: block;
+	width: 200px;
+	height: 40px;
+	font-size: 0;
+	overflow: hidden;
+}
+
+footer .copyright p {
+	margin: 20px 0 10px 0;
+	font-size: 12px;
+	color: #666;
+}
+
+footer .copyright .app {
+	display: block;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	color: #00a4ff;
+	border: 1px solid #00a4ff;
+}
+
+footer .copyright .app:hover {
+	color: #fff;
+	background-color: #00a4ff;
+	transition: all 0.8s;
+}
+
+footer .about {
+	float: right;
+	padding-right: 25px;
+	width: 550px;
+	height: 218px;
+	/* background-color: lightblue; */
+}
+
+footer .about dl {
+	float: left;
+	margin-left: 80px;
+}
+
+footer .about dt {
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+
+footer .about dt a {
+	font-size: 16px;
+}
+
+footer .about dd {
+	line-height: 20px;
+	font-size: 12px;
+}
+
+footer .about a {
+	color: #333;
+}
+
+footer .about a:hover {
+	color: #00a4ff;
+}
+
+/* footer部分 end */

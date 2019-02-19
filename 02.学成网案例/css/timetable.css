@@ -1,0 +1,201 @@
+/* timetable部分 start */
+.timetable {
+	background-color: #fff;
+}
+
+.timetable_inner {
+	padding: 10px 0;
+	height: 190px;
+}
+
+.timetable_inner ul {
+	height: 100%;
+}
+
+.timetable_inner li {
+	height: 57px;
+	line-height: 57px;
+}
+
+.timetable_inner li:nth-child(2) {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.timetable_inner h5 {
+	display: inline-block;
+	color: #000;
+}
+
+.timetable_inner a {
+	margin-left: 25px;
+	font-size: 14px;
+	color: #666666;
+}
+
+.timetable_inner .all_1 {
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	background-color: #00a4ff;
+}
+
+.timetable_inner .all_1:hover {
+	color: #00a4ff;
+	background-color: #fff;
+}
+
+.timetable_inner a:hover {
+	color: #00a4ff;
+}
+
+.timetable_inner .more {
+	float: right;
+	margin-right: 15px;
+	color: #00a4ff;
+}
+
+.timetable_inner .more::after {
+	content: "\ea50";
+	font-family: "icomoon";
+	font-size: 20px;
+	color: #00a4ff;
+}
+
+/* timetable部分 end */
+/* course部分 start */
+.course .core {
+	position: relative;
+	height: 1590px;
+}
+
+.course .recommend_inner_hd {
+	position: relative;
+}
+
+.course .recommend_inner_hd a {
+	font-size: 16px;
+	color: #666;
+}
+
+.course .recommend_inner_hd a:hover {
+	color: #00a4ff;
+}
+
+.course .paging {
+	position: absolute;
+	top: 1px;
+	right: 260px;
+	text-align: center;
+}
+
+.course .paging a {
+	float: left;
+	margin: 0;
+}
+
+.course .paging span {
+	float: left;
+	font-size: 14px;
+	color: #00a4ff;
+}
+
+.course .recommend_inner_bd ul {
+	width: 1072px;
+}
+
+.course .recommend_inner_bd ul {
+	width: 1072px;
+}
+
+.course .recommend_inner_bd li {
+	margin-right: 16px;
+}
+
+.course .topList {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 228px;
+	height: 593px;
+	background-color: #fff;
+}
+
+.topList .top {
+	display: block;
+	padding-left: 15px;
+	width: 228px;
+	height: 58px;
+	line-height: 58px;
+	font-weight: 700;
+	font-size: 16px;
+	color: #00a4ff;
+	background-color: #f3f5f7;
+}
+
+.course .topList .pic {
+	padding: 10px 0 0 20px;
+	height: 107px;
+	background: url(../images/160.png) no-repeat top center;
+}
+
+.course .pic p {
+	line-height: 20px;
+	font-size: 12px;
+	color: #dcdcdc;
+	overflow: hidden;
+}
+
+.course .topList li {
+	height: 107px;
+	width: 228px;
+	border-top: 1px solid #ccc;
+}
+
+.course .love {
+	top: 593px;
+	margin-top: 12px;
+}
+
+.course .love .pic {
+	background: url(../images/162.png) no-repeat top center;
+}
+
+/* course部分 end */
+/* page部分 start */
+.page {
+	position: absolute;
+	bottom: 0;
+	width: 956px;
+	height: 90px;
+	line-height: 90px;
+	text-align: center;
+}
+
+.page a {
+	font-size: 14px;
+	color: #999999;
+}
+
+.page a:hover {
+	color: #00a4ff;
+}
+
+.page a.num {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, .0);
+}
+
+.page .num:hover {
+	background-color: #00a4ff;
+	color: #fff;
+}
+
+/* page部分 end */

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid pink;
+            margin: 100px auto 0;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    //定义一个构造函数--用于创建完整的饼状图
+    function PieChart(ctx) {
+        //获取绘图工具
+        this.ctx = ctx || document.querySelector("canvas").getContext("2d");
+
+        //获取画布的尺寸
+        this.w = this.ctx.canvas.width;
+        this.h = this.ctx.canvas.height;
+
+        //设置饼状图的圆心
+        this.x0 = this.w / 2 + 60;
+        this.y0 = this.h / 2;
+
+        //饼状图的半径
+        this.radius = 150;
+
+        //设置饼状图延伸出去的直线的长度
+        this.outLine = 20;
+
+        //设置颜色说明的矩形的宽高距离画布的距离 矩形直接的垂直间距
+        //矩形宽高
+        this.rectWidth = 30;
+        this.rectHeight = 16;
+
+        //矩形之间的垂直间距
+        this.space = 10;
+        //矩形距离画布的距离
+        this.canvasSpace = 20;
+    }
+
+    //初始化饼状图
+    PieChart.prototype.init = function (data) {
+        this.drawPie(data);
+    };
+
+    //根据后台数据得到样本总量和每个数据所占的弧度
+    PieChart.prototype.transformToAngle = function (data) {
+        //定义一个变量，用于保存样本总量
+        var total = 0;
+        data.forEach(function (item, i) {
+            total += item.num;
+        });
+        //根据样本总量得到每个数据所占的弧度
+        data.forEach(function (item, i) {
+            var angle = 2 * Math.PI * (item.num / total);
+            //在data的每项数据中定义一个属性angle 用于保存当前的弧度
+            item.angle = angle;
+        });
+        //返回包含弧度的数据
+        return data;
+    };
+
+    //设置每个弧度所在的扇形颜色
+    PieChart.prototype.getRandomColor = function () {
+        var red = Math.floor(Math.random() * 256);
+        var green = Math.floor(Math.random() * 256);
+        var blue = Math.floor(Math.random() * 256);
+        return 'rgb(' + red + ',' + green + ', ' + blue + ')';
+    };
+
+    //绘制饼状图
+    PieChart.prototype.drawPie = function (data) {
+        //将当前的this保存
+        var that = this;
+        //接收含有弧度的数据
+        var angleList = this.transformToAngle(data);
+        //console.log(angleList);
+        //定义一个变量 保存画笔的初始位置
+        var startAngle = 0;
+        //遍历数据 绘制每一个弧度所构成的扇形
+        angleList.forEach(function (item, i) {
+            //设置结束弧度的位置
+            var endAngle = startAngle + item.angle;
+            //开始绘制弧度
+            that.ctx.beginPath();
+            //设置颜色 并保存当前颜色用于绘制延伸线
+            var color = that.ctx.fillStyle = that.getRandomColor();
+            that.ctx.moveTo(that.x0, that.y0);
+            that.ctx.arc(that.x0, that.y0, that.radius, startAngle, endAngle);
+            that.ctx.fill();
+
+            //绘制延伸线和说明文字
+            that.drawTextDescription(startAngle, item.angle, color, item.title);
+
+            //绘制矩形说明
+            that.drawRectDescription(i, item.title);
+
+            //保存当前的弧度 用做下一个弧度的起始点
+            startAngle = endAngle;
+        });
+    };
+
+    //绘制饼状图中每块扇形延伸出去的直线和对应的文字说明
+    PieChart.prototype.drawTextDescription = function (startAngle, angle, color, title) {
+        //让延伸线从圆弧中间穿过,起始坐标定位在圆心,计算出延伸线的终点坐标
+        /**思路--利用三角函数
+         *    -1- 半径 + 延伸出去的长度 = 斜边
+         *        获取用于三角函数计算的角alpha 即当前起始弧度到弧度的一半所构成的角
+         *        alpha = startAngle + item.angle / 2
+         *    -2- 计算斜边和角alpha所在三角形的两条直角边
+         *        -2-1- alpha的对边 = sin(alpha) * 斜边 ==》 对边长
+         *        -2-2- alpha的邻边 = cos(alpha) * 斜边 ==》 邻边长
+         *    -3- 根据对边和斜边长计算出延伸线的终点坐标
+         *       -3-1- 延伸线终点坐标x = 圆心x + 邻边长
+         *       -3-2- 延伸线终点坐标y = 圆心y + 对边长
+         */
+            //计算出斜边
+        var edge = this.radius + this.outLine;
+
+        //根据斜边得到斜边长 邻边长
+        var edgeX = Math.cos(startAngle + angle / 2) * edge;
+        var edgeY = Math.sin(startAngle + angle / 2) * edge;
+
+        //计算出延伸线终点坐标
+        var outX = this.x0 + edgeX;
+        var outY = this.y0 + edgeY;
+
+        //开始绘制延伸线的轨迹
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = color;
+        this.ctx.moveTo(this.x0, this.y0);
+        this.ctx.lineTo(outX, outY);
+
+        //绘制延伸线的横向直线轨迹 和 文字说明
+        /** -1- 先绘制文字
+         *      - 判断圆弧是在画布垂直中线的左边还是右边
+         *        在右边--文字说明对齐方式为左对齐 ctx.textAlign = "left"
+         *        在左边--文字说明对齐方式为左对齐 ctx.textAlign = "right"
+         *  -2- 文字基线对齐方式 ctx.textBaseline = "top"
+         *      文字颜色和延伸线同步
+         *  -3- 根据文字说明的字符串宽度，绘制延伸线的直线部分
+         *      直线长度 = 字符串宽度ctx.measureText(str).width
+         *  -4- 判断圆弧是在画布垂直中线的左边还是右边
+         *     -1- 圆弧位于画布垂直中线右边即 outX > 圆心X坐标
+         *         则直线终点坐标为(outX + 文字宽度, outY) 文字左对齐
+         *     -2- 圆弧位于画布垂直中线左边即 outX < 圆心X坐标
+         *         则直线终点坐标为(outX - 文字宽度, outY) 文字右对齐
+         */
+        //绘制文字
+        //设置文字的大小和字体
+        this.ctx.font = "14px Microsoft YaHei";
+        var textWidth = this.ctx.measureText(title).width;
+        //绘制直线轨迹和文字说明
+        //弧线在画布中心右侧
+        if (outX >= this.x0) {
+            this.ctx.lineTo(outX + textWidth, outY);
+            this.ctx.textAlign = "left";
+        } else {
+            this.ctx.lineTo(outX - textWidth, outY);
+            this.ctx.textAlign = "right";
+        }
+        //设置文字基线对齐方式
+        this.ctx.textBaseline = "bottom";
+        this.ctx.fillText(title, outX, outY);
+        this.ctx.stroke();
+    };
+
+    //绘制矩形 对饼状图中每块弧线所在扇形的颜色进行文字说明
+    PieChart.prototype.drawRectDescription = function (index, title) {
+        /**计算每个矩形的坐标
+         * 矩形起始坐标 (距离画布space, 距离画布space + i*(矩形间距space + 矩形height))
+         */
+        //绘制填充矩形
+        this.ctx.fillRect(this.canvasSpace, this.canvasSpace + index * (this.space + this.rectHeight), this.rectWidth, this.rectHeight);
+        //绘制文字说明
+        this.ctx.font = "12px Microsoft YaHei";
+        //根据后台数据绘制文字
+        this.ctx.textAlign = "left";
+        this.ctx.textBaseline = "top";
+        //文字起始横坐标 = 矩形起始横坐标 + 矩形width + 偏移10px,  文字纵坐标 = 矩形纵坐标
+        this.ctx.fillText(title, this.canvasSpace + this.rectWidth + 10, this.canvasSpace + index * (this.space + this.rectHeight));
+    };
+
+    //模拟一组从后台传入的用户数据
+    var data = [
+        {
+            title: '15-20岁',
+            num: 6
+        },
+        {
+            title: '20-25岁',
+            num: 30
+        },
+        {
+            title: '25-30岁',
+            num: 10
+        },
+        {
+            title: '30以上',
+            num: 8
+        }
+    ];
+
+    //实例化饼状图并初始化
+    var pieChart = new PieChart();
+    pieChart.init(data);
+</script>
+</body>
+</html>

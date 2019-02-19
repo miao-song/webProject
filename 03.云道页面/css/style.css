@@ -1,0 +1,416 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.clearfix:after {
+	display: block;
+	height: 0;
+	content: "";
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+body {
+	background-color: #fafafa;
+}
+
+/*header START */
+.header {
+	height: 100px;
+	background-color: #fff;
+}
+
+.header-inner {
+	margin: 0 auto;
+	width: 1250px;
+	height: 100px;
+}
+
+.header .logo {
+	float: left;
+}
+
+.header .nav {
+	float: right;
+}
+
+.nav ul {
+	/* 清除浮动带来的影响 */
+	overflow: hidden;
+}
+
+.nav li {
+	list-style: none;
+	font-size: 18px;
+}
+
+.nav li {
+	float: left;
+	margin-right: 40px;
+}
+
+.nav li a {
+	text-decoration: none;
+	line-height: 100px;
+	color: #333;
+}
+
+.nav li a:hover {
+	color: #2288f6;
+}
+
+/* header END */
+
+/* banner START */
+.banner {
+	position: relative;
+	height: 620px;
+	background: url(../images/banner.jpg) no-repeat top center;
+}
+
+.banner .move {
+	position: absolute;
+	height: 15px;
+	bottom: 17px;
+	left: 50%;
+	margin-left: -32px;
+}
+
+.banner li {
+	list-style: none;
+	float: left;
+}
+
+.banner a {
+	display: block;
+	margin-right: 16px;
+	width: 12px;
+	height: 12px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	background-color: #fff;
+}
+
+.banner a:hover {
+	background-color: rgba(0, 0, 0, .2);
+}
+
+/* banner END */
+
+/* 我们的服务 start */
+.service {
+	margin: 70px auto 0;
+	width: 1060px;
+	height: 660px;
+	/* background-color: lightblue; */
+}
+
+.service-hd {
+	margin: 0 25px;
+	border-top: 1px solid #ccc;
+}
+
+.service-hd h3 {
+	margin: -16px auto 0;
+	width: 168px;
+	height: 50px;
+}
+
+.service-hd p {
+	margin: 15px auto 0;
+	width: 845px;
+	line-height: 26px;
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+}
+
+.service-bd {
+	margin: 46px auto 0;
+}
+
+.service-bd li {
+	float: left;
+	width: 318px;
+	height: 508px;
+	list-style: none;
+	border: 1px solid #e7e8e9;
+	background-color: #fff;
+	/* background-color: lightblue; */
+}
+
+.service-bd li:nth-child(2) {
+	margin: 0 45px;
+}
+
+.service-bd img {
+	/* 清除图片下间隙 */
+	display: block;
+	margin: 30px auto;
+}
+
+.service-bd li h3 {
+	height: 40px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 400;
+	color: #333;
+}
+
+.service-bd p {
+	margin: 0 auto;
+	width: 238px;
+	line-height: 27px;
+	font-size: 14px;
+	color: #666;
+}
+
+.service-bd a {
+	display: block;
+	margin: 36px auto 60px;
+	width: 148px;
+	height: 38px;
+	line-height: 38px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	color: #ff9412;
+	border: 1px solid #ff9412;
+	border-radius: 5px;
+}
+
+.service-bd a:hover {
+	color: #fff;
+	background-color: #ff9412;
+}
+
+/* 我们的服务 end */
+
+/* 经典案例case部分 开始 */
+.case {
+	margin: 30px auto;
+	height: 430px;
+	background-color: #fff;
+	font-family: '微软雅黑 Regular';
+}
+
+.case-inner {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 1240px;
+}
+
+.case-hd {
+	/* position: relative; */
+	/* top: 70px; */
+	margin: 70px 113px 0;
+	height: 80px;
+	border-top: 1px solid #ccc;
+}
+
+.case-hd h3 {
+	margin: -17px auto 0;
+	width: 166px;
+	height: 53px;
+}
+
+.case-bd {
+	position: relative;
+}
+
+.case-bd ul {
+	margin: 0 auto;
+	width: 1060px;
+	height: 214px;
+	list-style: none;
+}
+
+.case-bd li {
+	float: left;
+	width: 324px;
+	height: 211px;
+	background-color: lightblue;
+}
+
+.case-bd li:nth-child(2) {
+	margin: 0 40px;
+}
+
+.case-bd li:nth-child(1) {
+	position: relative;
+	background: url(../images/pro1.png) no-repeat center;
+}
+
+.case-bd li:nth-child(2) {
+	position: relative;
+	background: url(../images/pro2.png) no-repeat center;
+}
+
+.case-bd li:nth-child(3) {
+	position: relative;
+	background: url(../images/pro3.png) no-repeat center;
+}
+
+.case-bd .search {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -37px;
+	margin-top: -37px;
+	width: 74px;
+	height: 74px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, .5) url(../images/iconfont-fangdajing1.png) no-repeat center center;
+}
+
+.case-bd .search:hover {
+	background-image: url(../images/iconfont-fangdajing.png);
+}
+
+.case-bd .text {
+	position: absolute;
+	bottom: 30px;
+	left: 105px;
+	width: 100%;
+	height: 45px;
+	font-size: 16px;
+	color: #333;
+}
+
+.case-bd .help {
+	position: absolute;
+	bottom: 0;
+	width: 324px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.case-bd .cover {
+	display: none;
+	width: 324px;
+	height: 211px;
+	background-color: rgba(0, 0, 0, .3);
+}
+
+.case-bd li:hover .search,
+.case-bd li:hover .cover {
+	display: block;
+}
+
+.case-bd .left,
+/* 固定定位 写轮播剪头 */
+.case-bd .right {
+	display: block;
+
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 50%;
+	font-size: 24px;
+	color: #fdfdfd;
+	background-color: #e6e6e6;
+}
+
+.case-bd .right {
+	right: 0;
+}
+
+.case-bd .left:hover,
+.case-bd .right:hover {
+	background-color: #57a9ef;
+}
+
+/*  经典案例case部分 结束 */
+/* 合作媒体 开始 */
+.media {
+	margin: 0 auto;
+	width: 1060px;
+	height: 428px;
+}
+
+.media-hd {
+	margin: 0 25px;
+	height: 84px;
+	border-top: 1px solid #ccc;
+}
+
+.media-hd h3 {
+	margin: -25px auto 0;
+	width: 167px;
+	height: 54px;
+}
+
+.media-bd {
+	width: 1059px;
+	/*第二步：设置爷爷辈盒子宽高小于孙子盒子，然后溢出部分隐藏overflow: hidden; */
+	height: 242px;
+	overflow: hidden;
+}
+
+/* 让最右边和最下边的边框消失 */
+.media-bd ul {
+	/* 第一步：设置父盒子宽高大于等于子盒子，否则子盒子会因为父盒子宽度不够掉下去 */
+	width: 1060px;
+	height: 243px;
+}
+
+.media li {
+	float: left;
+	padding-top: 20px;
+	width: 211px;
+	height: 60px;
+	list-style: none;
+	text-align: center;
+	border-right: 1px dashed #ccc;
+	border-bottom: 1px dashed #ccc;
+}
+
+/* 合作媒体 结束 */
+/* footer 开始 */
+footer {
+	overflow: hidden;
+	height: 170px;
+	background-color: #212425;
+}
+
+footer .subnav {
+	margin: 45px auto;
+	width: 1250px;
+	height: 25px;
+	text-align: center;
+}
+
+footer a {
+	padding: 0 15px;
+	font-size: 14px;
+	color: #f0f1f1;
+	text-decoration: none;
+	border-right: 1px solid #f0f1f1;
+}
+
+footer a:hover {
+	color: #2288f6;
+	text-decoration: underline;
+}
+
+footer p {
+	margin-top: 30px;
+	color: #888;
+}
+
+/* footer 结束 */

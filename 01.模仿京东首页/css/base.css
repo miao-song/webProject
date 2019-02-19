@@ -1,0 +1,634 @@
+/* 页面 头部 底部 的公共样式 */
+body {
+	background-color: #F0F3EF;
+}
+
+/* 版心 */
+.w {
+	width: 1190px;
+	margin: auto;
+}
+
+ul,
+h1,
+h5,
+p,
+dl,
+dt,
+dd {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.style_red {
+	color: #f10125 !important;
+}
+
+.clearfix::after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src: url('../fonts/icomoon.eot?jjubu9');
+	src: url('../fonts/icomoon.eot?jjubu9#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?jjubu9') format('truetype'),
+		url('../fonts/icomoon.woff?jjubu9') format('woff'),
+		url('../fonts/icomoon.svg?jjubu9#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.iconfont {
+	font-family: "icomoon";
+	font-style: normal;
+}
+
+/* 顶部 开始啦 */
+.J-top {
+	margin: 0;
+	height: 80px;
+	background-color: #FF742B;
+}
+
+.J-top a {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	height: 80px;
+	width: 1190px;
+	/* background: url(../images/head.jpg) no-repeat 50% 0; 等同下面的方位名字*/
+	background: url(../images/head.jpg) no-repeat center top;
+}
+
+.J-top .icon-close {
+	margin-top: 5px;
+}
+
+/* 顶部 结束啦 */
+/* 快捷导航栏 开始啦 */
+.shortcut {
+	/* 导航栏里面的文字垂直居中 */
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #999;
+	border-bottom: 1px solid #dddddd;
+	background: #e3e4e5;
+}
+
+.shortcut li {
+	float: left;
+}
+
+.shortcut .fl {
+	margin-left: 200px;
+}
+
+.shortcut .fl .iconfont {
+	font-size: 14px;
+	color: #f10215;
+}
+
+.shortcut a {
+	color: #999;
+}
+
+.shortcut a:hover {
+	color: #f10215;
+}
+
+/* 小竖线 */
+.shortcut .spacer {
+	margin: 12px 10px 0;
+	width: 1px;
+	height: 10px;
+	background: #ccc;
+}
+
+.dropdown {
+	position: relative;
+	/* 给li设置 padding-right用于放置定位的图标字体，这样图标字体才不会和 a重叠 */
+	padding-right: 10px;
+}
+
+/* 定位元素是可以跨过 padding 和 margin 的，浮动元素不可以*/
+.shortcut .fr .iconfont {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	top: -1px;
+	right: -2px;
+	font-size: 16px;
+}
+
+.shortcut .fr .mobile_static {
+	position: relative;
+}
+
+/* 二维码 */
+.shortcut .fr .erweima {
+	position: absolute;
+	padding: 3px;
+	width: 60px;
+	height: 60px;
+	left: -7px;
+	top: 31px;
+	z-index: 1;
+	border: 1px solid #ccc;
+}
+
+/* 快捷导航栏 结束啦 */
+/* header部分 开始 */
+.header .w {
+	position: relative;
+	height: 140px;
+}
+
+/* 左侧logo部分 开始 */
+.header .logo {
+	position: absolute;
+	height: 170px;
+	left: 0;
+	top: -31px;
+	box-shadow: 0 -12px 10px rgba(0, 0, 0, .2);
+}
+
+.header h1 {
+	margin: 0;
+}
+
+.header .logo a {
+	display: block;
+	width: 190px;
+	height: 170px;
+	background: url(../images/sprite.head.png) no-repeat 0 0;
+	/* 让 “京东” 两个字看不见的方法 */
+	/* 方法一 */
+	text-indent: -9999px;
+	/* 方法二 */
+	/* font-size: 0; */
+}
+
+/* 左侧logo部分 结束 */
+/* 中间搜索框 开始 */
+.header .search {
+	position: absolute;
+	width: 550px;
+	height: 35px;
+	line-height: 35px;
+	left: 320px;
+	top: 25px;
+	background-color: #fff;
+}
+
+.header .search input {
+	padding-left: 5px;
+	width: 450px;
+	height: 25px;
+	border: 0;
+	outline: none;
+	font-size: 14px;
+	color: #333;
+}
+
+.header .search span {
+	position: absolute;
+	width: 20px;
+	height: 15px;
+	top: 10px;
+	right: 65px;
+	cursor: pointer;
+	background: url(../images/sprite-photo-search.png) no-repeat 0 0;
+}
+
+.header .search button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 35px;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+	color: #fff;
+	background-color: #f10215;
+}
+
+/* 中间搜索框 结束  */
+/* hotword 开始 */
+.header .hotword {
+	position: absolute;
+	top: 65px;
+	left: 320px;
+	width: 550px;
+	height: 30px;
+	line-height: 20px;
+	/* 超出盒子部分隐藏显示为省略号 */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.header .hotword li {
+	margin-right: 15px;
+}
+
+.header .hotword a {
+	font-size: 12px;
+	color: #999;
+}
+
+.header .hotword a:hover {
+	color: #c81623;
+}
+
+/* hotword 结束 */
+/* navitems部分 start */
+.header .navitems {
+	position: absolute;
+	bottom: 0;
+	left: 190px;
+	width: 790px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.header .navitems .spacer {
+	/* 让小竖线左右的margin一样 */
+	margin: 15px -10px 0 20px;
+	height: 10px;
+	width: 1px;
+	background-color: #ccc;
+}
+
+.header .navitems li {
+	margin-left: 30px;
+}
+
+.header .navitems a {
+	color: #333;
+}
+
+.header .navitems a:hover {
+	color: #f81623;
+}
+
+/* navitems部分 end */
+/* trasure部分 start */
+.header .trasure {
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+	width: 190px;
+	height: 40px;
+}
+
+.header .trasure a {
+	display: block;
+	width: 190px;
+	height: 40px;
+	background: url(../images/youhui.png) no-repeat
+}
+
+/* trasure部分 end */
+/* myCar部分 start */
+.header .myCar {
+	position: absolute;
+	top: 25px;
+	right: 100px;
+	width: 188px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	color: #f10215;
+	background-color: #fff;
+	border: 1px solid #e3e4e5;
+}
+
+.header .myCar a {
+	font-size: 14px;
+	color: #f10215;
+}
+
+.header .num {
+	/* 设置min-width 保证即使购物车没有商品 右上角的小圆圈也不会变瘪 */
+	min-width: 12px;
+	position: absolute;
+	top: 3px;
+	left: 145px;
+	right: auto;
+	border-radius: 7px;
+	padding: 1px;
+	line-height: 14px;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	background-color: #f10215;
+}
+
+/* myCar部分 end */
+/* header部分 结束 */
+
+/* footer 部分 start */
+/* 服务模块 开始 */
+.footer .service {
+	border-bottom: 1px solid #dedede;
+}
+
+.footer .service-inner {
+	height: 109px;
+}
+
+.footer .service-inner li {
+	position: relative;
+	width: 297px;
+	height: 109px;
+	line-height: 109px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color: #444;
+}
+
+.service-inner p,
+.service-inner h5 {
+	display: inline-block;
+}
+
+.service-inner h5 {
+	width: 36px;
+	height: 43px;
+	font-size: 0;
+	background: url(../images/sprite.footer.png) no-repeat 0 -191px;
+}
+
+.service-inner p {
+	margin-left: 25px;
+}
+
+.service-inner .duo {
+	position: absolute;
+	top: 34px;
+	left: 35px;
+	background-position: 0 -191px;
+}
+
+.service-inner .kuai {
+	position: absolute;
+	top: 34px;
+	left: 35px;
+	background-position: -41px -191px;
+}
+
+.service-inner .hao {
+	position: absolute;
+	top: 34px;
+	left: 35px;
+	background-position: -82px -191px;
+}
+
+.service-inner .sheng {
+	position: absolute;
+	top: 34px;
+	left: 35px;
+	background-position: -123px -191px;
+}
+
+/* 服务模块 结束 */
+/* help模块 start */
+.footer .mod_help_inner {
+	padding-top: 25px;
+	height: 174px;
+	line-height: 22px;
+	font-size: 12px;
+	color: #666;
+	border-bottom: 1px solid #dedede;
+}
+
+.footer .mod_help_inner dt {
+	font-size: 14px;
+	font-weight: 600;
+	color: #666;
+}
+
+.footer .mod_help_inner a {
+	color: #666;
+}
+
+.footer .mod_help_inner a:hover {
+	color: #f10215;
+}
+
+.footer .mod_help_zhinan {
+	width: 200px;
+	height: 156px;
+}
+
+.footer .mod_help_peisong {
+	width: 198px;
+	height: 137px;
+}
+
+.footer .mod_help_zhifu {
+	width: 198px;
+	height: 137px;
+}
+
+.footer .mod_help_shouhou {
+	width: 198px;
+	height: 137px;
+}
+
+.footer .mod_help_tese {
+	width: 190px;
+	height: 156px;
+}
+
+.footer .mod_help_cover {
+	text-align: center;
+	width: 206px;
+	height: 150px;
+	background: url(../images/sprite.footer.png) no-repeat;
+}
+
+.footer .mod_help_cover .fuwu {
+	text-align: left;
+	padding: 15px 10px 0;
+}
+
+.footer .mod_help_cover .xiangqing {
+	text-align: right;
+	position: relative;
+	padding-right: 15px;
+}
+
+.footer .iconfont {
+	font-size: 16px;
+	position: absolute;
+	top: 1px;
+	right: 3px;
+}
+
+/* help模块 end */
+/* copyright 部分 start */
+.copyright {
+	height: 265px;
+}
+
+.copyright .copyright_links {
+	margin: 10px auto 0;
+	width: 1089px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+}
+
+.copyright .copyright_links span {
+	margin: 0 7px;
+}
+
+.copyright .copyright_links a {
+	color: #666;
+}
+
+.copyright .copyright_links a:hover {
+	color: #c81623;
+}
+
+/* copyright 部分 end*/
+/* copyright_info 部分 end */
+.copyright .copyright_info {
+	margin: 10px auto 0;
+	width: 1089px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+	font-size: 12px;
+	color: #999;
+}
+
+.copyright .copyright_info a {
+	color: #999;
+}
+
+.copyright .copyright_info a:hover {
+	color: #c81623;
+}
+
+.copyright span {
+	margin: 0px;
+}
+
+.copyright .spacer {
+	margin: 0 10px;
+}
+
+.copyright i {
+	display: inline-block;
+	margin-right: 10px;
+	width: 15px;
+	height: 12px;
+	/* 让背景图看起来居中 和文字对齐 */
+	vertical-align: -1px;
+	background: url(../images/sprite.footer.png) no-repeat -108px -155px;
+}
+
+.copyright i.two {
+	background-position: -168px -155px;
+}
+
+.copyright i.three,
+.copyright i.four,
+.copyright i.five {
+	width: 15px;
+	height: 10px;
+}
+
+.copyright i.three {
+	background-position: -148px -155px;
+}
+
+.copyright i.four {
+	background-position: -128px -155px;
+}
+
+.copyright i.five {
+	background-position: -108px -172px;
+}
+
+.copyright .net {
+	margin-top: 35px;
+}
+
+.copyright .net_one {
+	display: inline-block;
+	width: 103px;
+	height: 32px;
+	background: url(../images/sprite.footer.png) no-repeat -205px -111px;
+}
+
+.copyright .net_two {
+	display: inline-block;
+	width: 103px;
+	height: 32px;
+	background: url(../images/sprite.footer.png) no-repeat -205px -74px;
+}
+
+.copyright .net_three {
+	display: inline-block;
+	width: 103px;
+	height: 32px;
+	background: url(../images/sprite.footer.png) no-repeat -205px -37px;
+}
+
+.copyright .net_four {
+	display: inline-block;
+	width: 103px;
+	height: 32px;
+	background: url(../images/sprite.footer.png) no-repeat -205px 0;
+}
+
+.copyright .net_five {
+	display: inline-block;
+	width: 103px;
+	height: 32px;
+	background: url(../images/sprite.footer.png) no-repeat 0 -155px;
+}
+
+/* copyright_info部分 start */
+/* footer 部分 end */

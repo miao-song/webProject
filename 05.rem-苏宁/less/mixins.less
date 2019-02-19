@@ -1,0 +1,16 @@
+//遍历所有需要适配的设备的屏幕尺寸
+//但less 中没有for循环
+//模仿while循环 使用迭代来遍历---即在函数中调用函数本身
+//循环解释条件---根据数组长度结束循环
+//根据数组的元素序号来遍历 元素序号从1开始
+.adapterMixin(@index) when (@index > 0 ) {
+  //使用extract(数组, 序号) 内置函数 取数组的项
+  @media (min-width: extract(@adaptDeviceList, @index)) {
+    html {
+      //适配的尺寸 = 基准尺寸 / 设计稿尺寸 * 当前设备的屏幕尺寸
+      font-size: @baseFontSize / @psdWidth * extract(@adaptDeviceList, @index);
+    }
+  }
+  //因为设备数组是从大到小的尺寸 因此倒序迭代 从小屏开始适配
+  .adapterMixin(@index - 1);
+}

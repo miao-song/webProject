@@ -1,0 +1,52 @@
+{
+  "status": 0,
+  "message": [{
+      "src": "../../../static/images/banner01.jpg",
+      "msrc": "../../../static/images/banner01-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/banner02.jpg",
+      "msrc": "../../../static/images/banner02-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/banner03.jpg",
+      "msrc": "../../../static/images/banner03-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/n1.jpg",
+      "msrc": "../../../static/images/n1-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/n2.jpg",
+      "msrc": "../../../static/images/n2-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/n3.jpg",
+      "msrc": "../../../static/images/n3-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/banner01.jpg",
+      "msrc": "../../../static/images/banner01-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/banner02.jpg",
+      "msrc": "../../../static/images/banner02-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/banner03.jpg",
+      "msrc": "../../../static/images/banner03-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/n1.jpg",
+      "msrc": "../../../static/images/n1-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/n2.jpg",
+      "msrc": "../../../static/images/n2-thumb.jpg"
+    },
+    {
+      "src": "../../../static/images/n3.jpg",
+      "msrc": "../../../static/images/n3-thumb.jpg"
+    }
+  ]
+}

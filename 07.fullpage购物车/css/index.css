@@ -1,0 +1,889 @@
+a {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: top;
+    border: 0;
+}
+
+#go {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 30px;
+    right: 30px;
+    border-radius: 50%;
+    z-index: 1001;
+    /*background-color: #ff0;*/
+}
+
+#more {
+    position: fixed;
+    bottom: 100px;
+    right: 60px;
+    z-index: 1001;
+    animation: more .6s linear infinite alternate;
+}
+
+/*每一屏的more 动画*/
+@keyframes more {
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(20px);
+    }
+}
+
+.content {
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -450px;
+    text-align: center;
+    /*background-color: rgba(0, 0, 0, .1);*/
+}
+
+/*第一屏*/
+.section01 {
+    background: url(../images/01-bg.png) no-repeat center bottom;
+}
+
+.section01 .goods {
+    margin-top: 230px;
+}
+
+.section01 .sofa {
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    animation: sofa01 0.8s linear infinite alternate;
+}
+
+.section01 .fly {
+    position: absolute;
+    right: -50px;
+    top: -25px;
+    animation: fly01 0.6s linear infinite alternate;
+}
+
+/*第一屏的动画*/
+/*第一屏的 fly 动画*/
+@keyframes fly01 {
+    from {
+        transform: translateX(-30px);
+    }
+
+    to {
+        transform: translateX(30px);
+    }
+}
+
+/*第一屏沙发动画*/
+@keyframes sofa01 {
+    from {
+        transform: translateY(-10px);
+    }
+
+    to {
+        transform: translateY(10px);
+    }
+}
+
+/*第二屏*/
+.section02 {
+    background: url(../images/02-bg.png) no-repeat center bottom;
+}
+
+.section02 .text1 {
+    opacity: 1;
+}
+
+.section02 .text2 {
+    position: absolute;
+    opacity: 0;
+}
+
+.section02 .goods {
+    position: absolute;
+    left: 227px;
+    top: 172px;
+    transform: scale(0);
+    transform-origin: right bottom;
+}
+
+.section02 .sofa {
+    position: absolute;
+    top: 135px;
+    left: 289px;
+    transform: scale(0.5);
+    opacity: 0;
+    z-index: 1001;
+}
+
+.section02 .input {
+    position: absolute;
+    width: 222px;
+    top: 120px;
+    right: 170px;
+    transform: scale(.7);
+    transform-origin: top right;
+    opacity: 0;
+}
+
+.section02 .input :first-child {
+    position: absolute;
+    left: 103px;
+    top: 5px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.section02 .input :last-child {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/*第二屏的动画*/
+/*第二屏加载完成之后文字一隐藏 文字二显现*/
+.section02.now .text1 {
+    position: absolute;
+    opacity: 0;
+}
+
+.section02.now .text2 {
+    opacity: 1;
+    position: static;
+    transition: opacity 1s;
+}
+
+/*第二屏搜索框的动画
+  --1-- 搜索框从屏幕最右边出现
+  --2-- 从最右边移动到中间停顿1s等待搜索文字出现
+  --3-- 搜索框回到初始位置
+*/
+.section02.now .input {
+    /*动画播放完成的状态控制
+    默认属性为backwards(回到起点)，forwards(保持)*/
+    animation: input02 3s linear forwards;
+}
+
+@keyframes input02 {
+    0% {
+        opacity: 1;
+        transform: translate(2000px, 130px);
+    }
+
+    33.3% {
+        transform: translate(-170px, 130px);
+    }
+
+    66.7% {
+        transform: translate(-170px, 130px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*第二屏搜索框文字动画
+  --1-- 等待搜索框从右边出现
+  --2-- 在搜索框进入背景图的电脑桌面之后，文字显示出来
+*/
+.section02.now .input :first-child {
+    opacity: 1;
+    transition: opacity 1s linear 1s;
+}
+
+/*第二屏商品列表动画
+  --1-- 等待搜索框从右边出现
+  --2-- 在搜索框进入背景图的电脑桌面之后，出现搜索文字
+  --3-- 商品goods开始从右下角缩放显示出来
+*/
+.section02.now .goods {
+    transform: scale(1);
+    transition: all 1s linear 2s;
+}
+
+/*第二屏到第三屏的动画
+  -- 页面从第二屏到第三屏时，第二屏的sofa显示出来
+  -- sofa开始向下移动掉入第三屏
+  -- 动画完成，第二屏的沙发从第三屏回到第二屏
+  -- 第三屏的沙发显示出来
+*/
+.section02.leaved .sofa {
+    animation: sofa02 1s linear;
+}
+
+/*第二屏sofa向下移动的动画*/
+@keyframes sofa02 {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-80px, 750px);
+    }
+}
+
+/*第三屏*/
+.section03 {
+    background: url(../images/03-bg.png) no-repeat center bottom;
+}
+
+.section03 .sofa03 {
+    display: none;
+    position: absolute;
+    top: 170px;
+    left: 210px;
+    z-index: 1001;
+}
+
+.section03 .change {
+    position: absolute;
+    top: 300px;
+    left: 490px;
+}
+
+.section03 .change img:first-child {
+    opacity: 1;
+}
+
+.section03 .change img:last-child {
+    position: absolute;
+    opacity: 0;
+}
+
+.section03 .cart {
+    position: absolute;
+    top: 440px;
+    left: 490px;
+}
+
+.section03 .cart img:first-child {
+    opacity: 1;
+}
+
+.section03 .cart img:last-child {
+    opacity: 0;
+    position: absolute;
+}
+
+/*第三屏动画*/
+.section03.now .change img:first-child {
+    position: absolute;
+    opacity: 0;
+}
+
+.section03.now .change img:last-child {
+    position: static;
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+.section03.now .cart img:first-child {
+    position: absolute;
+    opacity: 0;
+}
+
+.section03.now .cart img:last-child {
+    position: static;
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+.section03.now .sofa03 {
+    display: block;
+    transition: all 1s linear;
+}
+
+/*第三屏移动到第四屏的动画*/
+/*--1--页面从第三屏离开移动到第四屏时，第三屏的sofa倾斜
+  --2--沙发开始向下移动到第四屏
+  --3--第三屏sofa到达第四屏，sofa回到第三屏
+  --4--同时第四屏的sofa显示出来
+ */
+.section03.leaved .sofa03 {
+    animation: sofa03 1s linear;
+}
+
+@keyframes sofa03 {
+    from {}
+
+    to {
+        transform: translate(170px, 680px) rotate(45deg);
+    }
+}
+
+/*第四屏*/
+.section04 {
+    background: url(../images/04-bg.png) no-repeat center bottom;
+}
+
+.section04 .cloud {
+    position: absolute;
+    top: -50px;
+    left: -500px;
+    animation: cloud04 25s linear infinite alternate;
+}
+
+.section04 .cart {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+}
+
+.section04 .cart .sofa04 {
+    display: none;
+    position: absolute;
+    left: 150px;
+    top: -30px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.section04 .address {
+    display: none;
+    position: absolute;
+    width: 283px;
+    height: 270px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 180px;
+}
+
+.section04 .address :last-child {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 55px;
+}
+
+.section04 .text {
+    margin-top: 120px;
+}
+
+.section04 .text :last-child {
+    position: absolute;
+    opacity: 0;
+}
+
+/*第四屏动画*/
+/*当第三屏的sofa落入购物车的动画完成后，第三屏sofa回到第三屏
+  第四屏的sofa显示然后和购物车一起开始向右移动
+*/
+.section04.now .cart {
+    transform: translateX(1000px);
+    transition: all 3s linear;
+}
+
+/*购物车移动的过程中，sofa也缓慢在购物车中下滑*/
+.section04.now .cart .sofa04 {
+    display: block;
+    animation: sofa04 3s linear forwards;
+}
+
+@keyframes sofa04 {
+    from {}
+
+    to {
+        transform: translate(10px, 20px);
+    }
+}
+
+/*当第四屏的购物车移动到右边之后，
+  收货地址和出现上方的收货提示文字也发生改变
+  此时需要监听第四屏的购物车动画是否执行完毕，
+  否则每次都要人工掐时间来计算下一个动画该何时执行
+  以上功能功能在js中实现
+*/
+
+/*白云动画*/
+@keyframes cloud04 {
+    from {}
+
+    to {
+        transform: translateX(1000px);
+    }
+}
+
+/*第四屏的文字部分变化*/
+.section04.now .text :first-child {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 3s 1s;
+}
+
+.section04.now .text :last-child {
+    position: static;
+    opacity: 1;
+    transition: opacity 2s 3s;
+}
+
+/*第五屏*/
+.section05 {
+    background: url(../images/05-bg.png);
+}
+
+.section05 .text {
+    margin-left: -350px;
+}
+
+.section05 .orderImg {
+    position: absolute;
+    left: 140px;
+    top: 100px;
+    opacity: 0;
+    z-index: 1002;
+}
+
+.section05 .cardImg {
+    position: absolute;
+    left: 0;
+    top: 180px;
+    z-index: 1002;
+}
+
+.section05 .sofa05 {
+    position: absolute;
+    left: 90px;
+    top: 350px;
+    transform: rotate(30deg);
+    opacity: 0;
+    z-index: 1001;
+}
+
+.section05 .mouse {
+    position: absolute;
+    right: 0;
+    top: -95px;
+    height: 100%;
+    width: 300px;
+    overflow: hidden;
+    /*background-color: #ff0;*/
+}
+
+.section05 .mouse :first-child,
+.section05 .mouse :last-child {
+    position: absolute;
+    right: 0;
+    top: -340px;
+}
+
+.section05 .mouse :last-child {
+    opacity: 0;
+}
+
+.section05 .hand {
+    position: absolute;
+    right: 58px;
+    top: 230px;
+    opacity: 0;
+}
+
+/*第五屏动画*/
+.section05.now .hand {
+    animation: hand05 1s linear forwards;
+}
+
+/*手的动画*/
+@keyframes hand05 {
+    from {
+        opacity: 1;
+        transform: translateY(1000px);
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+/*鼠标变化*/
+/*当手移动到鼠标上之后，第二张鼠标图片显示出来，呈现右键被点击的状态*/
+.section05.now .mouse :last-child {
+    opacity: 1;
+    transition: all .2s linear 1s;
+}
+
+/*呈现小手点击鼠标之后沙发和账单显示动画*/
+/*沙发先有动画*/
+.section05.now .sofa05 {
+    animation: sofa05 2s linear 1.2s forwards;
+}
+
+@keyframes sofa05 {
+    0% {
+        opacity: 1;
+        transform: translateY(-1000px) rotate(30deg);
+    }
+
+    50% {
+        transform: translateY(-150px) rotate(30deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(30deg);
+    }
+}
+
+/*账单在沙发动画的过程中开始出现*/
+.section05.now .orderImg {
+    animation: orderImg05 1s linear 2s forwards;
+}
+
+@keyframes orderImg05 {
+    from {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*第五屏向第六屏移动时，第五屏的沙发继续向第6屏落下*/
+.section05.leaved .sofa05 {
+    animation: sofa05-06 1s linear;
+}
+
+@keyframes sofa05-06 {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(455px) rotate(30deg) scale(.2);
+    }
+}
+
+/*第6屏*/
+.section06 {
+    background: url(../images/06-bg.png) no-repeat 25% bottom;
+}
+
+.section06 .cloud :first-child {
+    position: absolute;
+    left: -100px;
+    top: -80px;
+    animation: cloud06 30s linear infinite alternate;
+}
+
+.section06 .cloud :last-child {
+    position: absolute;
+    left: -150px;
+    top: -60px;
+    animation: cloud06 200s linear infinite alternate;
+}
+
+@keyframes cloud06 {
+    from {}
+
+    to {
+        transform: translateX(1000px);
+    }
+}
+
+.section06 .text1 {
+    position: absolute;
+    left: 100px;
+    top: 60px;
+}
+
+.section06 .text2 {
+    position: absolute;
+    left: 100px;
+    top: 60px;
+    opacity: 0;
+}
+
+.section06 .box {
+    position: absolute;
+    left: 0;
+    top: 160px;
+    z-index: 1002;
+    opacity: 0;
+}
+
+.section06 .car {
+    position: absolute;
+    left: 110px;
+    bottom: 0;
+    z-index: 1003;
+}
+
+.section06 .buyerImg {
+    position: absolute;
+    left: 175px;
+    top: -35px;
+    opacity: 0;
+}
+
+.section06 .addressImg {
+    position: absolute;
+    left: 175px;
+    top: -35px;
+    opacity: 0;
+}
+
+.section06 .workerImg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    transform-origin: left bottom;
+}
+
+.section06 .say {
+    margin-top: 50px;
+    margin-left: 160px;
+    opacity: 0;
+}
+
+.section06 .doorImg,
+.section06 .personImg {
+    position: absolute;
+    right: 52px;
+    bottom: 116px;
+    opacity: 0;
+}
+
+.section06 .personImg {
+    opacity: 1;
+    transform-origin: right bottom;
+    transform: scale(0);
+}
+
+/*第六屏动画*/
+/*包裹盒在第五屏向第六屏切换时和沙发同步动画
+从页面右边移动到沙发落入的位置*/
+.section06 .box.show {
+    animation: box06 2s linear forwards;
+}
+
+@keyframes box06 {
+    0% {
+        opacity: 1;
+        transform: translatex(-500px)
+    }
+
+    50% {
+        transform: translateX(130px);
+    }
+
+    100% {
+
+        opacity: 1;
+        transform: translate(130px, 300px) scale(0.2);
+    }
+}
+
+/*包裹盒动画完成背景图立马开始动画向右移动实现货车向右移动的效果*/
+.section06.now {
+    background-position: 100% bottom;
+    transition: all 1s linear 1s;
+}
+
+/*背景移动的同时，车中的地址发生改变*/
+.section06.now .buyerImg {
+    opacity: 1;
+    transition: opacity 1s linear 1s;
+}
+
+.section06.now .addressImg {
+    opacity: 1;
+    transition: opacity 1s linear 1.8s;
+}
+
+/*背景移动完成后，车中的快递员开始动画*/
+.section06.now .workerImg {
+    animation: worker06 2s linear 2.8s forwards;
+}
+
+@keyframes worker06 {
+    0% {
+        transform: scale(0.2);
+    }
+
+    33.3% {
+        transform: scale(1) translate(-230px, 0)
+    }
+
+    67% {
+        transform: translate(-230px, -100px);
+        z-index: -1;
+    }
+
+    100% {
+        transform: scale(1) translateY(-100px) translateX(200px);
+        z-index: -1;
+    }
+}
+
+/*快递员动画完成，文字信息发生改变，同时快递员说一句话*/
+.section06.now .say {
+    opacity: 1;
+    transition: opacity 1s linear 4.8s;
+}
+
+.section06.now .text1 {
+    opacity: 0;
+    transition: opacity 0.4s linear 4.3s;
+}
+
+.section06.now .text2 {
+    opacity: 1;
+    transition: opacity 1s linear 4.8s;
+}
+
+/*快递员动画完成，顾客动画开始*/
+.section06.now .doorImg {
+    opacity: 1;
+    transition: opacity .5s linear 5.8s;
+}
+
+.section06.now .personImg {
+    opacity: 1;
+    animation: person06 1s linear 6s forwards;
+}
+
+@keyframes person06 {
+    0% {
+        transform: scale(0.3);
+    }
+
+    100% {
+        transform: scale(1) translateX(-150px);
+    }
+}
+
+/*第七屏*/
+.section07 {
+    background: url(../images/07-bg.png) no-repeat center bottom;
+}
+
+.section07 .star {
+    position: absolute;
+    left: 157px;
+    top: 142px;
+    opacity: 0;
+}
+
+.section07 .star img {
+    float: left;
+    margin-right: 6px;
+    /* display: none;*/
+    opacity: 0;
+}
+
+.section07 .text {
+    position: absolute;
+    left: 112px;
+    top: 200px;
+    transform: scale(0);
+    transform-origin: left bottom;
+}
+
+.section07 .star.show {
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+
+/*页面是当前这一屏时，星星开始逐个加载
+  方法一--用js-jQuery的方式实现
+       --1-- 每一个星星图 display: none;
+       --2-- 在js中遍历每一个星星，设置依次延迟淡入效果
+
+  方法二--用css3 的方式实现
+       --1-- 装星星的容器 opacity: 0;
+       --2-- 每一个星星图 opacity: 0;
+       --3-- 在js中为装星星的容器添加类名show,让其在页面中显示
+       --4-- 设置容器显示后的所有星星 opacity:1
+       --5-- 在js中遍历每一个星星，依次设置显示的延迟时间
+*/
+.section07 .star.show img {
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+
+/*星星显示完毕，"好评" 文字显示动画*/
+.section07 .text.show {
+    animation: text07 1.5s linear 2.3s forwards;
+}
+
+@keyframes text07 {
+    0% {
+        transform: scale(0.6);
+    }
+
+    50% {
+        transform: scale(1.2);
+        left: 165px;
+        top: 182px;
+    }
+
+    100% {
+        transform: none;
+        left: 165px;
+        top: 182px;
+    }
+}
+
+/*第八屏*/
+.section08 {
+    background: url(../images/08-bg.png) repeat;
+}
+
+.section08 .btn {
+    position: absolute;
+    width: 389px;
+    height: 160px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.section08 .btn :first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.section08 .btn :last-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.section08 .hand {
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    transform: translateX(-50%);
+}
+
+.section08 .again {
+    position: absolute;
+    right: 10px;
+    top: 100px;
+}
+
+/*在js中设置第八屏的功能*/
+/*也可以在css中设置鼠标经过按钮，按钮有动画*/
+.section08 .btn:hover :last-child {
+    opacity: 1;
+}

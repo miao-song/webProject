@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    //定义一个构造函数，用于创建折线图
+    function LineChart(ctx) {
+        //画布上下文
+        this.ctx = ctx || document.querySelector("canvas").getContext("2d");
+
+        //画布的宽高
+        this.canvasWidth = this.ctx.canvas.width;
+        this.canvasHeight = this.ctx.canvas.height;
+
+        //网格大小
+        this.gridSize = 10;
+
+        //坐标轴距离画布的距离
+        this.space = 20;
+
+        //坐标原点
+        this.x0 = this.space;
+        this.y0 = this.canvasHeight - this.space;
+
+        //坐标轴箭头的大小
+        this.arrowSize = 10;
+
+        //坐标点的大小
+        this.dotSize = 6;
+    }
+
+    //初始化折线图---初始化行为
+    LineChart.prototype.init = function (data) {
+        this.drawGrid();
+        this.drawCoordinate();
+        this.drawDot(data);
+    };
+
+    //绘制网格
+    LineChart.prototype.drawGrid = function () {
+        //可以绘制的横向及纵向网格线条数
+        var xLineTotal = Math.floor(this.canvasHeight / this.gridSize);
+        var yLineTotal = Math.floor(this.canvasWidth / this.gridSize);
+
+        //设置网格线的颜色
+        this.ctx.strokeStyle = "#ddd";
+
+        //开始绘制横向网格线
+        for (var i = 0; i <= xLineTotal; i++) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(0, i * this.gridSize - 0.5);
+            this.ctx.lineTo(this.canvasWidth, i * this.gridSize - 0.5);
+            this.ctx.stroke();
+        }
+
+        //绘制纵向网格线
+        for (var i = 0; i <= yLineTotal; i++) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(i * this.gridSize - 0.5, 0);
+            this.ctx.lineTo(i * this.gridSize - 0.5, this.canvasHeight);
+            this.ctx.stroke();
+        }
+    };
+
+    //绘制坐标系
+    LineChart.prototype.drawCoordinate = function () {
+        //设置描边颜色
+        this.ctx.strokeStyle = "#000";
+
+        //绘制横轴和横轴箭头
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.x0, this.y0 - 0.5);
+        this.ctx.lineTo(this.canvasWidth - this.space, this.y0 - 0.5);
+        this.ctx.lineTo(this.canvasWidth - this.space - this.arrowSize, this.y0 + this.arrowSize / 2);
+        this.ctx.lineTo(this.canvasWidth - this.space - this.arrowSize, this.y0 - this.arrowSize / 2);
+        this.ctx.lineTo(this.canvasWidth - this.space, this.y0);
+        this.ctx.fill();
+        this.ctx.stroke();
+
+        //绘制纵轴和纵轴箭头
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.x0 - 0.5, this.y0);
+        this.ctx.lineTo(this.space - 0.5, this.space);
+        this.ctx.lineTo(this.space + this.arrowSize / 2, this.space + this.arrowSize);
+        this.ctx.lineTo(this.space - this.arrowSize / 2, this.space + this.arrowSize);
+        this.ctx.lineTo(this.space - 0.5, this.space);
+        this.ctx.fill();
+        this.ctx.stroke();
+    };
+
+    //绘制坐标点
+    /** 根据后台传入的数据绘制坐标点，注意此处的坐标需要转为画布上的canvas坐标,如下
+     *  以自定义的坐标原点为参考点
+     *  画布x = 自定义坐标系x原点 + 后台数据x
+     *  画布y = 自定义坐标系y原点 - 后台数据y
+     */
+    LineChart.prototype.drawDot = function (data) {
+        //在外部将当前的this保存,因为在数组遍历的参数函数中this指向发生改变
+        var that = this;
+        //定义两个变量保存上一次的canvas坐标，便于下一次两个点进行连线
+        var preX = 0;
+        var preY = 0;
+
+        //遍历后台数据，根据后台数据绘制点
+        data.forEach(function (item, i) {
+            //获取点的坐标
+            var canvasX = that.x0 + item.x;
+            var canvasY = that.y0 - item.y;
+            //开始绘制点
+            that.ctx.beginPath();
+            that.ctx.moveTo(canvasX - that.dotSize / 2, canvasY - that.dotSize / 2);
+            that.ctx.lineTo(canvasX + that.dotSize / 2, canvasY - that.dotSize / 2);
+            that.ctx.lineTo(canvasX + that.dotSize / 2, canvasY + that.dotSize / 2);
+            that.ctx.lineTo(canvasX - that.dotSize / 2, canvasY + that.dotSize / 2);
+            that.ctx.closePath();
+            that.ctx.fill();
+
+            //将绘制的点连线
+            //判断如果是从坐标原点开始连线 则画笔起点为坐标原点
+            //否则就是上一个点为画笔起点
+            if (i == 0) {
+                that.ctx.beginPath();
+                that.ctx.moveTo(that.x0, that.y0);
+                that.ctx.lineTo(canvasX, canvasY);
+                that.ctx.stroke();
+            } else {
+                that.ctx.beginPath();
+                that.ctx.moveTo(preX, preY);
+                that.ctx.lineTo(canvasX, canvasY);
+                that.ctx.stroke();
+            }
+            //保存当前的坐标，以供下一次使用
+            preX = canvasX;
+            preY = canvasY;
+        })
+    };
+
+    //假设有一组从后台传过来的数据
+    var data = [
+        {
+            x: 100,
+            y: 120
+        },
+        {
+            x: 200,
+            y: 190
+        },
+        {
+            x: 300,
+            y: 240
+        },
+        {
+            x: 400,
+            y: 160
+        },
+        {
+            x: 500,
+            y: 300
+        }
+    ];
+
+
+    //实例化对象并初始化
+    var lineChart = new LineChart();
+    lineChart.init(data);
+</script>
+</body>
+</html>

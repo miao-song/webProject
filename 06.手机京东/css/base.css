@@ -1,0 +1,72 @@
+/*========初始化===========*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*去除点击或轻触时颜色高亮效果*/
+    tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input,
+textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    /*去除按钮的样式*/
+    -webkit-appearance: none;
+}
+
+img {
+    vertical-align: top;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/*========公共样式===========*/
+/*左右浮动*/
+.f-left {
+    float: left;
+}
+
+.f_right {
+    float: right;
+}
+
+/*轻除浮动*/
+.clearfix::after,
+.clearfix::before {
+    display: block;
+    content: '';
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+/*公用的精灵图*/
+[class^="icon_"],
+[class*=" icon_"] {
+    background-image: url("../images/sprites.png");
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+}

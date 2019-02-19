@@ -1,0 +1,15 @@
+{
+  "status": 0,
+  "message": [{
+      "imgurl": "./static/images/banner01.jpg",
+      "imgid": 1
+    }, {
+      "imgurl": "./static/images/banner02.jpg",
+      "imgid": 2
+    },
+    {
+      "imgurl": "./static/images/banner03.jpg",
+      "imgid": 3
+    }
+  ]
+}
